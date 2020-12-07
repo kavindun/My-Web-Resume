@@ -68,10 +68,11 @@
     $mail->addAddress('kavindujd1995@gmail.com');
 
     $mail->isHTML(true);
+    $mail->isSMTP();
     $mail->Subject='From Submission : '.$subject;
-    $mail->Body='<h1>Name : '.$name.'<br>Email : '.$email.'<br>Subject : '.$subject.'<br>Message : '.$message.'</h1>'
+    $mail->Body='<h1>Name : '.$name.'<br>Email : '.$email.'<br>Subject : '.$subject.'<br>Message : '.$message.'</h1>';
     if(!$mail->send()){
-      echo "Something went wrong.Please try again."
+      echo "Something went wrong.Please try again.";
     }
     else{
       echo "Thanks ".$name."for contacting me. I will get back to you soon!";
