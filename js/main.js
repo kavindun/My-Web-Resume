@@ -18,19 +18,19 @@ jQuery(document).ready(function( $ ) {
     interval: 3500
   });
 
-  // JavaScript Chart
+  // C Chart
   var doughnutData = [{
-      value: 70,
+      value: 90,
       color: "#1abc9c"
     },
     {
-      value: 30,
+      value: 10,
       color: "#ecf0f1"
     }
   ];
-  var myDoughnut = new Chart(document.getElementById("javascript").getContext("2d")).Doughnut(doughnutData);
+  var myDoughnut = new Chart(document.getElementById("c").getContext("2d")).Doughnut(doughnutData);
 
-  // Bootstrap Chart
+  // Java Chart
   var doughnutData = [{
     value: 90,
     color: "#1abc9c"
@@ -40,9 +40,9 @@ jQuery(document).ready(function( $ ) {
     color: "#ecf0f1"
   }
   ];
-  var myDoughnut = new Chart(document.getElementById("bootstrap").getContext("2d")).Doughnut(doughnutData);
+  var myDoughnut = new Chart(document.getElementById("java").getContext("2d")).Doughnut(doughnutData);
 
-  // WordPress Chart
+  // Python Chart
   var doughnutData = [{
     value: 65,
     color: "#1abc9c"
@@ -52,21 +52,33 @@ jQuery(document).ready(function( $ ) {
     color: "#ecf0f1"
   }
   ];
-  var myDoughnut = new Chart(document.getElementById("wordpress").getContext("2d")).Doughnut(doughnutData);
+  var myDoughnut = new Chart(document.getElementById("python").getContext("2d")).Doughnut(doughnutData);
 
   // HTML Chart
   var doughnutData = [{
-    value: 80,
+    value: 60,
     color: "#1abc9c"
   },
   {
-    value: 20,
+    value: 40,
     color: "#ecf0f1"
   }
   ];
   var myDoughnut = new Chart(document.getElementById("html").getContext("2d")).Doughnut(doughnutData);
 
-  // Photoshop Chart
+  // JavaScript Chart
+  var doughnutData = [{
+    value: 60,
+    color: "#1abc9c"
+  },
+  {
+    value: 40,
+    color: "#ecf0f1"
+  }
+  ];
+  var myDoughnut = new Chart(document.getElementById("javascript").getContext("2d")).Doughnut(doughnutData);
+
+  // My SQL Chart
   var doughnutData = [{
     value: 70,
     color: "#1abc9c"
@@ -76,9 +88,9 @@ jQuery(document).ready(function( $ ) {
     color: "#ecf0f1"
   }
   ];
-  var myDoughnut = new Chart(document.getElementById("photoshop").getContext("2d")).Doughnut(doughnutData);
+  var myDoughnut = new Chart(document.getElementById("mysql").getContext("2d")).Doughnut(doughnutData);
 
-  // Illustrator Chart
+  // Android Studio Chart
   var doughnutData = [{
     value: 50,
     color: "#1abc9c"
@@ -88,5 +100,29 @@ jQuery(document).ready(function( $ ) {
     color: "#ecf0f1"
   }
   ];
-  var myDoughnut = new Chart(document.getElementById("illustrator").getContext("2d")).Doughnut(doughnutData);
+  var myDoughnut = new Chart(document.getElementById("android").getContext("2d")).Doughnut(doughnutData);
+
+  // Wolfarm Mathematica Chart
+  var doughnutData = [{
+    value: 70,
+    color: "#1abc9c"
+  },
+  {
+    value: 30,
+    color: "#ecf0f1"
+  }
+  ];
+  var myDoughnut = new Chart(document.getElementById("mathematica").getContext("2d")).Doughnut(doughnutData);
+
+  // Arduino Chart
+  var doughnutData = [{
+    value: 70,
+    color: "#1abc9c"
+  },
+  {
+    value: 30,
+    color: "#ecf0f1"
+  }
+  ];
+  var myDoughnut = new Chart(document.getElementById("arduino").getContext("2d")).Doughnut(doughnutData);
 });

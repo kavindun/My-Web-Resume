@@ -1,29 +1,62 @@
 <?php
-  /**
-  * Requires the PHP Mail Form library
-  * The PHP Mail Form library is available only in the pro version of the template
-  * The library should be uploaded to: lib/php-mail-form/php-mail-form.php
-  * For more info and help: https://templatemag.com/php-mail-form/
-  */
-
-  if( file_exists($php_mail_form_library = '../lib/php-mail-form/php-mail-form.php' )) {
-    include( $php_mail_form_library );
-  } else {
-    die( 'Unable to load the PHP Mail Form Library!');
+  $nameErr = $emailErr = "";
+  $name = $email = $message = $subject = "";
+  
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["name"])) {
+      $nameErr = "Name is required";
+    } else {
+      $name = test_input($_POST["name"]);
+      // check if name only contains letters and whitespace
+      if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+        $nameErr = "Only letters and white space allowed"; 
+      }
+    }
+  
+    if (empty($_POST["email"])) {
+      $emailErr = "Email is required";
+    } else {
+      $email = test_input($_POST["email"]);
+      // check if e-mail address is well-formed
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Invalid email format"; 
+      }
+    }
+  
+    if (empty($_POST["subject"])) {
+      $subject = "";
+    } else {
+      $subject = test_input($_POST["subject"]);
+    }
+  
+    if (empty($_POST["message"])) {
+      $message = "";
+    } else {
+      $message = test_input($_POST["message"]);
+    }
+  
+    
   }
-
-  $contactform = new PHP_Mail_Form;
-  $contactform->ajax = true;
-
-  // Replace with your real receiving email address
-  $contactform->to = 'contact@example.com';
-  $contactform->from_name = $_POST['name'];
-  $contactform->from_email = $_POST['email'];
-  $contactform->subject = $_POST['subject'];
-
-  $contactform->add_message( $_POST['name'], 'From');
-  $contactform->add_message( $_POST['email'], 'Email');
-  $contactform->add_message( $_POST['message'], 'Message', 10);
-
-  echo $contactform->send();
+  function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+  
+  if(($emailErr=="")and($nameErr=="")){
+    $msg = "<h3>$name</h3><br><h3>Email : $email</h3><br><h3>$subject<h3><br><p>$message</p>";
+   // echo $msg;
+  
+    // use wordwrap() if lines are longer than 70 characters
+    $msg = wordwrap($msg,70);
+    
+    // send email
+    mail("kavindujd1995@gmail.com","My subject",$msg);
+    echo "<h3>Sent</h3>"
+    
+  }
+  else{
+    echo "<h3>invalid inputs.</h3>";
+  }
 ?>
